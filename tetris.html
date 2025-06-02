@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>Tetris</title>
+	<meta charset="UTF-8">
+    <style>
+      body {
+        background: #202028;
+        color: #fff;
+        font-family: sans-serif;
+        font-size: 2em;
+        text-align: center;
+      }
+      canvas {
+        border: solid .2em #fff;
+        height: 90vh;
+      }
+	  
+	  #player{
+	  background-color: black;
+	  width: auto;
+	  height: 150px;
+	  border-style: solid;
+	  border-width: 5px;
+	  border-color: white;
+	  }
+	  
+	  #score{
+	  color:white;
+	  }
+	  
+	  #controls{
+	  background-color: #F0F8FF;
+	  width: 150px;
+	  height: 200px;
+	  border-style: solid;
+	  border-width: 5px;
+	  border-color: #6495ED;
+	  text-align: left;
+	  color:black;
+	  font-size:12px;
+	  font-family:Courier New;
+	  }
+	  
+	  #left{
+	  float:left;
+	  }
+	  
+	  #right{
+	  float: right;
+		}
+    </style>
+</head>
+<body>
+
+	<div id=left>
+
+	<h4>SCORE:
+    <div id="score"></div>
+    </h4>
+	
+	<h4>Level:
+    <div id="level"></div>
+    </h4>
+	
+	<div id="controls">
+	<h3>control keys</h3>
+	<p><b>left arrow</b> - move left</p>
+	<p><b>right arrow</b> - move right</p>
+	<p><b>up arrow</b> - rotate right</p>
+	<p><b>down arrow</b> - soft drop</p>
+	<p><b>Z</b> - rotate left</p>
+	</div>
+	</div>
+	
+		
+	<!--canvas: Ein Container für Grafiken. 
+	Um eine Grafik zeichnen zu können, muss man
+	javascript verwenden.
+	 Element hat nur zwei Attribute - width und height.
+	 Das <canvas> Element hat eine Methode getContext(), 
+	 mit der der Kontext definiert wird. getContext() 
+	 benötigt nur einen String als Argument, den Typ 
+	 des Kontextes. Für 2D Grafiken ist dieser String "2d".
+	-->
+	
+
+	<div id=right>
+	<div id="nextplayer">
+	<h4>Next player: </h4>
+    <canvas id="player">  </canvas>
+	</div>
+	
+	
+	<div id="musicplayer">
+	<h4>Music on/off </h4>
+	
+    <input type="button" value="ON"  onclick="playMusic()">
+	<input type="button" value="OFF"  onclick="stopMusic()">
+   	</div>
+	</div>
+	
+	<script>
+	function playMusic(){
+       let audio = document.querySelector("audio");
+       audio.play();
+    }
+	
+	function stopMusic(){
+		let audio = document.querySelector("audio");
+       audio.pause();
+	}
+	</script>
+
+
+	<audio loop id="audio" src="Tetris.mp3" ></audio>
+
+
+	<div id="tetrisArea">
+    <canvas id="tetris" width="240" height="400"> </canvas> 
+    <script src="tetris.js"></script>
+	</div>
+	
+	
+	
+</body>
+</html>
